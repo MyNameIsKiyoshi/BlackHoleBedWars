@@ -1,0 +1,8 @@
+name: BlackHoleBedWars
+api-version: '1.13'
+version: ${project.version}
+author: YumaHisai
+description: Official BlackHoleBedWars
+main: com.yumahisai.blholebw.BedWars
+softdepend: [Vault,PlaceholderAPI,Citizens,Parties,SlimeWorldManager,VipFeatures,Enhanced-SlimeWorldManager,PartyAndFriends,Spigot-Party-API-PAF]
+load: STARTUP

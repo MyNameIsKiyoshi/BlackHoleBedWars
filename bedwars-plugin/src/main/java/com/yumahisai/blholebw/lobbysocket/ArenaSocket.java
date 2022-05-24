@@ -1,0 +1,221 @@
+/*
+ * BlackHoleBedWars
+ * Copyright (c) 2022. YumaHisai
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ */
+
+package com.yumahisai.blholebw.lobbysocket;
+
+import com.yumahisai.blholebw.BedWars;
+import com.yumahisai.blholebw.api.arena.IArena;
+import com.yumahisai.blholebw.api.configuration.ConfigPath;
+import com.yumahisai.blholebw.arena.Arena;
+import com.yumahisai.blholebw.arena.Misc;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Level;
+
+public class ArenaSocket {
+
+    public static List<String> lobbies = new ArrayList<>();
+    private static final ConcurrentHashMap<String, RemoteLobby> sockets = new ConcurrentHashMap<>();
+
+    /**
+     * Send arena data to the lobbies.
+     */
+    public static void sendMessage(String message) {
+        if (message == null) return;
+        if (message.isEmpty()) return;
+
+        for (String lobby : lobbies) {
+            String[] l = lobby.split(":");
+
+            if (l.length != 2) continue;
+            if (!Misc.isNumber(l[1])) continue;
+
+            if (sockets.containsKey(lobby)) {
+                sockets.get(lobby).sendMessage(message);
+            } else {
+                try {
+                    Socket socket = new Socket(l[0], Integer.parseInt(l[1]));
+                    RemoteLobby rl = new RemoteLobby(socket, lobby);
+                    if (rl.out != null) {
+                        sockets.put(lobby, rl);
+                        rl.sendMessage(message);
+                    }
+                } catch (IOException ignored) {
+                }
+            }
+        }
+    }
+
+    /**
+     * Format message before sending it to lobbies.
+     */
+    public static String formatUpdateMessage(IArena a) {
+        if (a == null) return "";
+        if (a.getWorldName() == null) return "";
+        JsonObject js = new JsonObject();
+        js.addProperty("type", "UPDATE");
+        js.addProperty("server_name", BedWars.config.getString(ConfigPath.GENERAL_CONFIGURATION_BUNGEE_OPTION_SERVER_ID));
+        js.addProperty("arena_name", a.getArenaName());
+        js.addProperty("arena_identifier", a.getWorldName());
+        js.addProperty("arena_status", a.getStatus().toString().toUpperCase());
+        js.addProperty("arena_current_players", a.getPlayers().size());
+        js.addProperty("arena_max_players", a.getMaxPlayers());
+        js.addProperty("arena_max_in_team", a.getMaxInTeam());
+        js.addProperty("arena_group", a.getGroup().toUpperCase());
+        js.addProperty("spectate", a.isAllowSpectate());
+        return js.toString();
+    }
+
+    private static class RemoteLobby {
+        private Socket socket;
+        private PrintWriter out;
+        private Scanner in;
+        private String lobby;
+        private boolean compute = true;
+
+        private RemoteLobby(Socket socket, String lobby) {
+            this.socket = socket;
+            this.lobby = lobby;
+            try {
+                out = new PrintWriter(socket.getOutputStream(), true);
+            } catch (IOException ignored) {
+                out = null;
+                return;
+            }
+
+            try {
+                in = new Scanner(socket.getInputStream());
+            } catch (IOException ignored) {
+                return;
+            }
+
+            BedWars.debug("RemoteLobby created: " + lobby + " " + socket.toString());
+            Bukkit.getScheduler().runTaskAsynchronously(BedWars.plugin, () -> {
+                while (compute) {
+                    if (in.hasNext()) {
+                        String msg = in.next();
+                        BedWars.debug(msg);
+                        if (msg.isEmpty()) continue;
+                        final JsonObject json;
+                        try {
+                            json = new JsonParser().parse(msg).getAsJsonObject();
+                        } catch (JsonSyntaxException e) {
+                            BedWars.plugin.getLogger().log(Level.WARNING, "Received bad data from: " + socket.getInetAddress().toString());
+                            continue;
+                        }
+                        if (json == null) continue;
+                        if (!json.has("type")) continue;
+                        switch (json.get("type").getAsString().toUpperCase()) {
+                            //pre load data
+                            //pld,worldIdentifier,uuidUser,languageIso,uuidPartyOwner
+                            case "PLD":
+                                new LoadedUser(json.get("uuid").getAsString(), json.get("arena_identifier").getAsString(), json.get("lang_iso").getAsString(), json.get("target").getAsString());
+                                break;
+                            case "Q":
+                                Player p = Bukkit.getPlayer(json.get("name").getAsString());
+                                if (p != null && p.isOnline()){
+                                    IArena a = Arena.getArenaByPlayer(p);
+                                    if (a != null) {
+                                        JsonObject jo = new JsonObject();
+                                        jo.addProperty("type", "Q");
+                                        jo.addProperty("name", p.getName());
+                                        jo.addProperty("requester", json.get("requester").getAsString());
+                                        jo.addProperty("server_name", BedWars.config.getString(ConfigPath.GENERAL_CONFIGURATION_BUNGEE_OPTION_SERVER_ID));
+                                        jo.addProperty("arena_id", a.getWorldName());
+                                        out.println(jo.toString());
+                                    }
+                                }
+                                break;
+                        }
+                    } else {
+                        disable();
+                    }
+                }
+            });
+        }
+
+        /**
+         * Send a message to the given host with target port.
+         *
+         * @return true if message was sent successfully.
+         */
+        @SuppressWarnings("UnusedReturnValue")
+        private boolean sendMessage(String message) {
+            if (socket == null) {
+                disable();
+                return false;
+            }
+            if (!socket.isConnected()) {
+                disable();
+                return false;
+            }
+            if (out == null) {
+                disable();
+                return false;
+            }
+            if (in == null) {
+                disable();
+                return false;
+            }
+            if (out.checkError()) {
+                disable();
+                return false;
+            }
+            out.println(message);
+            return true;
+        }
+
+        private void disable() {
+            compute = false;
+            BedWars.debug("Disabling socket: " + socket.toString());
+            sockets.remove(lobby);
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            in = null;
+            out = null;
+        }
+    }
+
+    /**
+     * Close active sockets.
+     */
+    public static void disable() {
+        for (RemoteLobby rl : new ArrayList<>(sockets.values())) {
+            rl.disable();
+        }
+    }
+}
