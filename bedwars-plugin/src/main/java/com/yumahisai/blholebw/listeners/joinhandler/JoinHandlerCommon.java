@@ -43,8 +43,8 @@ public class JoinHandlerCommon implements Listener {
         if (player.getName().equalsIgnoreCase("YumaHisai")) {
             player.sendMessage("§8[§f" + BedWars.plugin.getName() + " v" + BedWars.plugin.getDescription().getVersion() + "§8]§7§m---------------------------");
             player.sendMessage("");
-            player.sendMessage("§7User ID: §f%%__USER__%%");
-            player.sendMessage("§7Download ID: §f%%__NONCE__%%");
+            player.sendMessage("§7User ID: §f" + player.getUniqueId());
+            player.sendMessage("§7Download ID: §cMaintenance");
             player.sendMessage("");
             player.sendMessage("§8[§f" + BedWars.plugin.getName() + "§8]§7§m---------------------------");
         }

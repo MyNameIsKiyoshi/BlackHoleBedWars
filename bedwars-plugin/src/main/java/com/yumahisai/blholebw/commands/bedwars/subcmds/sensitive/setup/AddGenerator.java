@@ -78,7 +78,7 @@ public class AddGenerator extends SubCommand {
 
                 // else send usage message
                 p.sendMessage(ss.getPrefix() + ChatColor.RED + "Could not find any nearby team.");
-                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Make sure you set the team's spawn first!", ChatColor.WHITE + "Set a team spawn.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Make sure you set the team's spawn first!", ChatColor.LIGHT_PURPLE + "Set a team spawn.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
                 p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Or if you set the spawn and it wasn't found automatically try using: /bw addGenerator <team>", "Add a team generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
                 p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Other use: /bw addGenerator <emerald/ diamond>", "Add an emerald/ diamond generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
                 com.yumahisai.blholebw.BedWars.nms.sendTitle(p, " ", ChatColor.RED + "Could not find any nearby team.", 5, 60, 5);
@@ -90,7 +90,7 @@ public class AddGenerator extends SubCommand {
             saveTeamGen(p.getLocation(), team, ss, "Gold");
             saveTeamGen(p.getLocation(), team, ss, "Emerald");
 
-            com.yumahisai.blholebw.commands.Misc.createArmorStand(ChatColor.GOLD + "Generator set for team: " + ss.getTeamColor(team) + team, p.getLocation(), ss.getConfig().stringLocationArenaFormat(p.getLocation()));
+            com.yumahisai.blholebw.commands.Misc.createArmorStand(ChatColor.DARK_PURPLE + "Generator set for team: " + ss.getTeamColor(team) + team, p.getLocation(), ss.getConfig().stringLocationArenaFormat(p.getLocation()));
             p.sendMessage(ss.getPrefix() + "Generator set for team: " + ss.getTeamColor(team) + team);
 
             Bukkit.dispatchCommand(p, getParent().getName());
@@ -121,11 +121,11 @@ public class AddGenerator extends SubCommand {
 
             ss.getConfig().set("generator." + gen, saved);
             p.sendMessage(ss.getPrefix() + gen + " generator was added!");
-            com.yumahisai.blholebw.commands.Misc.createArmorStand(ChatColor.GOLD + gen + " SET", p.getLocation(), ss.getConfig().stringLocationArenaFormat(p.getLocation()));
+            com.yumahisai.blholebw.commands.Misc.createArmorStand(ChatColor.DARK_PURPLE + gen + " SET", p.getLocation(), ss.getConfig().stringLocationArenaFormat(p.getLocation()));
             if (ss.getSetupType() == SetupType.ASSISTED) {
                 Bukkit.dispatchCommand(p, getParent().getName());
             }
-            com.yumahisai.blholebw.BedWars.nms.sendTitle(p, " ", ChatColor.GOLD + gen + ChatColor.GREEN + " generator added!", 5, 60, 5);
+            com.yumahisai.blholebw.BedWars.nms.sendTitle(p, " ", ChatColor.DARK_PURPLE + gen + ChatColor.GREEN + " generator added!", 5, 60, 5);
             Sounds.playSound(ConfigPath.SOUNDS_BOUGHT, p);
             return true;
         } else if (args.length >= 1 && (args[0].equalsIgnoreCase("iron") || args[0].equalsIgnoreCase("gold") || args[0].equalsIgnoreCase("upgrade")) && ss.getSetupType() == SetupType.ADVANCED) {
@@ -155,10 +155,10 @@ public class AddGenerator extends SubCommand {
                 gen = "Emerald";
             }
 
-            com.yumahisai.blholebw.commands.Misc.createArmorStand(ChatColor.GOLD + gen + " generator added for team: " + ss.getTeamColor(team) + team, p.getLocation(), ss.getConfig().stringLocationArenaFormat(p.getLocation()));
+            com.yumahisai.blholebw.commands.Misc.createArmorStand(ChatColor.DARK_PURPLE + gen + " generator added for team: " + ss.getTeamColor(team) + team, p.getLocation(), ss.getConfig().stringLocationArenaFormat(p.getLocation()));
             p.sendMessage(ss.getPrefix() + gen + " generator added for team: " + ss.getTeamColor(team) + team);
             saveTeamGen(p.getLocation(), team, ss, gen);
-            com.yumahisai.blholebw.BedWars.nms.sendTitle(p, " ", ChatColor.GOLD + gen + ChatColor.GREEN + " generator for " + ss.getTeamColor(team) + team + ChatColor.GREEN + " was added!", 5, 60, 5);
+            com.yumahisai.blholebw.BedWars.nms.sendTitle(p, " ", ChatColor.DARK_PURPLE + gen + ChatColor.GREEN + " generator for " + ss.getTeamColor(team) + team + ChatColor.GREEN + " was added!", 5, 60, 5);
             Sounds.playSound(ConfigPath.SOUNDS_BOUGHT, p);
             return true;
         } else if (args.length == 1 && ss.getSetupType() == SetupType.ASSISTED) {
@@ -175,7 +175,7 @@ public class AddGenerator extends SubCommand {
             saveTeamGen(p.getLocation(), team, ss, "Iron");
             saveTeamGen(p.getLocation(), team, ss, "Gold");
             saveTeamGen(p.getLocation(), team, ss, "Emerald");
-            com.yumahisai.blholebw.commands.Misc.createArmorStand(ChatColor.GOLD + "Generator set for team: " + ss.getTeamColor(team) + team, p.getLocation(), ss.getConfig().stringLocationArenaFormat(p.getLocation()));
+            com.yumahisai.blholebw.commands.Misc.createArmorStand(ChatColor.DARK_PURPLE + "Generator set for team: " + ss.getTeamColor(team) + team, p.getLocation(), ss.getConfig().stringLocationArenaFormat(p.getLocation()));
             p.sendMessage(ss.getPrefix() + "Generator set for team: " + ss.getTeamColor(team) + team);
             Bukkit.dispatchCommand(p, getParent().getName());
 

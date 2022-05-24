@@ -89,7 +89,7 @@ public class SetKillDropsLoc extends SubCommand {
                 arena.set("Team." + foundTeam + "." + ConfigPath.ARENA_TEAM_KILL_DROPS_LOC, arena.stringLocationArenaFormat(p.getLocation()));
                 String team = ss.getTeamColor(foundTeam) + foundTeam;
                 p.sendMessage(ss.getPrefix() + "Kill drops set for team: " + team);
-                Misc.createArmorStand(ChatColor.GOLD + "Kill drops " + team, p.getLocation(), null);
+                Misc.createArmorStand(ChatColor.DARK_PURPLE + "Kill drops " + team, p.getLocation(), null);
                 com.yumahisai.blholebw.BedWars.nms.sendTitle(p, " ", ChatColor.GREEN + "Kill drops set for team: " + team, 5, 40, 5);
                 Sounds.playSound(ConfigPath.SOUNDS_BOUGHT, p);
 
@@ -108,7 +108,7 @@ public class SetKillDropsLoc extends SubCommand {
         if (foundTeam.isEmpty()) {
             p.sendMessage("");
             p.sendMessage(ss.getPrefix() + ChatColor.RED + "Could not find any nearby team.");
-            p.spigot().sendMessage(com.yumahisai.blholebw.arena.Misc.msgHoverClick(ss.getPrefix() + "Make sure you set the team's spawn first!", ChatColor.WHITE + "Set a team spawn.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+            p.spigot().sendMessage(com.yumahisai.blholebw.arena.Misc.msgHoverClick(ss.getPrefix() + "Make sure you set the team's spawn first!", ChatColor.LIGHT_PURPLE + "Set a team spawn.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
             p.spigot().sendMessage(com.yumahisai.blholebw.arena.Misc.msgHoverClick(ss.getPrefix() + "Or if you set the spawn and it wasn't found automatically try using: /bw " + getSubCommandName() + " <team>", "Set kill drops location for a team.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
             com.yumahisai.blholebw.BedWars.nms.sendTitle(p, " ", ChatColor.RED + "Could not find any nearby team.", 5, 60, 5);
             Sounds.playSound(ConfigPath.SOUNDS_INSUFF_MONEY, p);
@@ -123,7 +123,7 @@ public class SetKillDropsLoc extends SubCommand {
                 if (arena.getYml().get("Team") != null) {
                     p.sendMessage(ss.getPrefix() + "Available teams: ");
                     for (String team : Objects.requireNonNull(arena.getYml().getConfigurationSection("Team")).getKeys(false)) {
-                        p.spigot().sendMessage(com.yumahisai.blholebw.arena.Misc.msgHoverClick(ChatColor.GOLD + " " + '▪' + " " + "Kill drops " + ss.getTeamColor(team) + team + " " + ChatColor.getLastColors(ss.getPrefix()) + "(click to set)", ChatColor.WHITE + "Set Kill drops for " + ss.getTeamColor(team) + team, "/" + com.yumahisai.blholebw.BedWars.mainCmd + " setKillDrops " + team, ClickEvent.Action.RUN_COMMAND));
+                        p.spigot().sendMessage(com.yumahisai.blholebw.arena.Misc.msgHoverClick(ChatColor.DARK_PURPLE + " " + '▪' + " " + "Kill drops " + ss.getTeamColor(team) + team + " " + ChatColor.getLastColors(ss.getPrefix()) + "(click to set)", ChatColor.LIGHT_PURPLE + "Set Kill drops for " + ss.getTeamColor(team) + team, "/" + com.yumahisai.blholebw.BedWars.mainCmd + " setKillDrops " + team, ClickEvent.Action.RUN_COMMAND));
                     }
                 }
                 return true;

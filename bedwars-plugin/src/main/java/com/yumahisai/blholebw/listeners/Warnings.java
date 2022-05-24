@@ -49,7 +49,7 @@ public class Warnings implements Listener {
 
         if(Bukkit.getServer().getSpawnRadius() > 0) {
             Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                player.sendMessage(ChatColor.RED + "[BlackHoleBedWars] Your spawn-protection in server.properties is enabled. "+ChatColor.YELLOW+"This might mess with BedWars arenas!"+ChatColor.GRAY+" I highly reccomend setting it to 0.");
+                player.sendMessage(ChatColor.RED + "[BlackHoleBedWars] Your spawn-protection in server.properties is enabled. "+ChatColor.DARK_PURPLE+"This might mess with BedWars arenas!"+ChatColor.GRAY+" I highly reccomend setting it to 0.");
             }, 5);
         }
     }

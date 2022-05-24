@@ -66,7 +66,7 @@ public class SetUpgrade extends SubCommand {
             if (foundTeam.isEmpty()) {
                 p.sendMessage("");
                 p.sendMessage(ss.getPrefix() + ChatColor.RED + "Could not find any nearby team.");
-                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Make sure you set the team's spawn first!", ChatColor.WHITE + "Set a team spawn.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Make sure you set the team's spawn first!", ChatColor.LIGHT_PURPLE + "Set a team spawn.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
                 p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Or if you set the spawn and it wasn't found automatically try using: /bw " + getSubCommandName() + " <team>", "Set team upgrades NPC for a team.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
                 com.yumahisai.blholebw.BedWars.nms.sendTitle(p, " ", ChatColor.RED + "Could not find any nearby team.", 0, 60, 10);
                 Sounds.playSound(ConfigPath.SOUNDS_INSUFF_MONEY, p);
@@ -80,7 +80,7 @@ public class SetUpgrade extends SubCommand {
                 if (ss.getConfig().getYml().get("Team") != null) {
                     p.sendMessage(ss.getPrefix() + "Available teams: ");
                     for (String team : Objects.requireNonNull(ss.getConfig().getYml().getConfigurationSection("Team")).getKeys(false)) {
-                        p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.GOLD + " " + '▪' + " " + ss.getTeamColor(team) + team + " " + ChatColor.getLastColors(ss.getPrefix()) + "(click to set)", ChatColor.WHITE + "Upgrade npc set for " + TeamColor.getChatColor(Objects.requireNonNull(ss.getConfig().getYml().getString("Team." + team + ".Color"))) + team, "/" + com.yumahisai.blholebw.BedWars.mainCmd + " setUpgrade " + team, ClickEvent.Action.RUN_COMMAND));
+                        p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.DARK_PURPLE + " " + '▪' + " " + ss.getTeamColor(team) + team + " " + ChatColor.getLastColors(ss.getPrefix()) + "(click to set)", ChatColor.LIGHT_PURPLE + "Upgrade npc set for " + TeamColor.getChatColor(Objects.requireNonNull(ss.getConfig().getYml().getString("Team." + team + ".Color"))) + team, "/" + com.yumahisai.blholebw.BedWars.mainCmd + " setUpgrade " + team, ClickEvent.Action.RUN_COMMAND));
                     }
                 }
             } else {
@@ -88,7 +88,7 @@ public class SetUpgrade extends SubCommand {
                 if (ss.getConfig().getYml().get("Team." + args[0] + ".Upgrade") != null) {
                     com.yumahisai.blholebw.commands.Misc.removeArmorStand("upgrade", ss.getConfig().getArenaLoc("Team." + args[0] + ".Upgrade"), null);
                 }
-                com.yumahisai.blholebw.commands.Misc.createArmorStand(teamm + " " + ChatColor.GOLD + "UPGRADE SET", p.getLocation(), null);
+                com.yumahisai.blholebw.commands.Misc.createArmorStand(teamm + " " + ChatColor.DARK_PURPLE + "UPGRADE SET", p.getLocation(), null);
                 ss.getConfig().saveArenaLoc("Team." + args[0] + ".Upgrade", p.getLocation());
                 p.sendMessage(ss.getPrefix() + "Upgrade npc set for: " + teamm);
 

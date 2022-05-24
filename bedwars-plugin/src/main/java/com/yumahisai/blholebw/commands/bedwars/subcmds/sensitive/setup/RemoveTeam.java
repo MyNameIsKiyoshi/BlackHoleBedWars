@@ -64,7 +64,7 @@ public class RemoveTeam extends SubCommand {
             if (ss.getConfig().getYml().get("Team") != null) {
                 p.sendMessage(ss.getPrefix() + "Available teams: ");
                 for (String team : Objects.requireNonNull(ss.getConfig().getYml().getConfigurationSection("Team")).getKeys(false)) {
-                    p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.GOLD + " " + '▪' + " " + TeamColor.getChatColor(team) + team, ChatColor.GRAY + "Remove " + TeamColor.getChatColor(team) + team + " " + ChatColor.GRAY + "(click to remove)", "/" + com.yumahisai.blholebw.BedWars.mainCmd + " removeTeam " + team, ClickEvent.Action.RUN_COMMAND));
+                    p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.DARK_PURPLE + " " + '▪' + " " + TeamColor.getChatColor(team) + team, ChatColor.GRAY + "Remove " + TeamColor.getChatColor(team) + team + " " + ChatColor.GRAY + "(click to remove)", "/" + com.yumahisai.blholebw.BedWars.mainCmd + " removeTeam " + team, ClickEvent.Action.RUN_COMMAND));
                 }
             }
         } else {

@@ -101,7 +101,7 @@ public class NPC extends SubCommand {
             npcs.add(BedWars.config.stringLocationConfigFormat(p.getLocation()) + "," + args[1] + "," + name + "," + args[2] + "," + npc.getId());
             String NPC_SET = "§a§c▪ §bNPC: %name% §bwas set!";
             p.sendMessage(NPC_SET.replace("%name%", name.replace("&", "§").replace("\\\\n", " ")));
-            p.sendMessage("§a§c▪ §bTarget groups: " + ChatColor.GOLD + args[2]);
+            p.sendMessage("§a§c▪ §bTarget groups: " + ChatColor.DARK_PURPLE + args[2]);
             BedWars.config.set(ConfigPath.GENERAL_CONFIGURATION_NPC_LOC_STORAGE, npcs);
 
         } else if (args[0].equalsIgnoreCase("remove")) {

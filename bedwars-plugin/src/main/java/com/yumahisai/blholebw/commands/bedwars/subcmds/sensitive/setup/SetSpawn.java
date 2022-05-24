@@ -65,7 +65,7 @@ public class SetSpawn extends SubCommand {
             if (ss.getConfig().getYml().get("Team") != null) {
                 for (String team : Objects.requireNonNull(ss.getConfig().getYml().getConfigurationSection("Team")).getKeys(false)) {
                     if (ss.getConfig().getYml().get("Team." + team + ".Spawn") == null) {
-                        p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Set spawn for: " + ss.getTeamColor(team) + team + " " + ChatColor.getLastColors(ss.getPrefix()) + "(click to set)", ChatColor.WHITE + "Set spawn for " + ss.getTeamColor(team) + team, "/" + BedWars.mainCmd + " setSpawn " + team, ClickEvent.Action.RUN_COMMAND));
+                        p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Set spawn for: " + ss.getTeamColor(team) + team + " " + ChatColor.getLastColors(ss.getPrefix()) + "(click to set)", ChatColor.LIGHT_PURPLE + "Set spawn for " + ss.getTeamColor(team) + team, "/" + BedWars.mainCmd + " setSpawn " + team, ClickEvent.Action.RUN_COMMAND));
                     }
                 }
             }
@@ -75,7 +75,7 @@ public class SetSpawn extends SubCommand {
                 if (ss.getConfig().getYml().get("Team") != null) {
                     p.sendMessage(ss.getPrefix() + "Teams list: ");
                     for (String team : Objects.requireNonNull(ss.getConfig().getYml().getConfigurationSection("Team")).getKeys(false)) {
-                        p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.GOLD + " " + '▪' + " " + ss.getTeamColor(team) + team + " " + ChatColor.getLastColors(ss.getPrefix()) + "(click to set)", ChatColor.WHITE + "Set spawn for " + ss.getTeamColor(team) + team, "/" + BedWars.mainCmd + " setSpawn " + team, ClickEvent.Action.RUN_COMMAND));
+                        p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.DARK_PURPLE + " " + '▪' + " " + ss.getTeamColor(team) + team + " " + ChatColor.getLastColors(ss.getPrefix()) + "(click to set)", ChatColor.LIGHT_PURPLE + "Set spawn for " + ss.getTeamColor(team) + team, "/" + BedWars.mainCmd + " setSpawn " + team, ClickEvent.Action.RUN_COMMAND));
                     }
                 }
             } else {
@@ -84,8 +84,8 @@ public class SetSpawn extends SubCommand {
                 }
                 ss.getConfig().saveArenaLoc("Team." + args[0] + ".Spawn", p.getLocation());
                 String teamm = ss.getTeamColor(args[0]) + args[0];
-                p.sendMessage(ChatColor.GOLD + " " + '▪' + " " + "Spawn set for: " + teamm);
-                com.yumahisai.blholebw.commands.Misc.createArmorStand(teamm + " " + ChatColor.GOLD + "SPAWN SET", p.getLocation(), ss.getConfig().stringLocationArenaFormat(p.getLocation()));
+                p.sendMessage(ChatColor.DARK_PURPLE + " " + '▪' + " " + "Spawn set for: " + teamm);
+                com.yumahisai.blholebw.commands.Misc.createArmorStand(teamm + " " + ChatColor.DARK_PURPLE + "SPAWN SET", p.getLocation(), ss.getConfig().stringLocationArenaFormat(p.getLocation()));
                 int radius = ss.getConfig().getInt(ConfigPath.ARENA_ISLAND_RADIUS);
                 Location l = p.getLocation();
                 for (int x = -radius; x < radius; x++) {
