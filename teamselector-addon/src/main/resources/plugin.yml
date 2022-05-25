@@ -1,7 +1,0 @@
-name: BlackHoleTeamSelector
-version: '${project.version}'
-main: com.yumahisai.blackholeteamselector.Main
-authors: [ YumaHisai ]
-description: TeamSelector Addon For BlackHoleBedWars
-softdepend: [BlackHoleBedWars]
-api-version: '1.13'
