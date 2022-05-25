@@ -69,12 +69,12 @@ public class Bangla extends Language {
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_PARTY_TOO_BIG, "{prefix}&cEi arena ti te jog dite apnar dol onek boro :(");
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_NOT_PARTY_LEADER, "{prefix}&cEkmatro Leader arena select korte parben.");
         yml.addDefault(Messages.COMMAND_JOIN_PLAYER_JOIN_MSG, "{prefix}&7{player} &ejog diyechen! (&b{on}&e/&b{max}&e)");
-        yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_MSG, "{prefix}§6Apni akhon spectate korchen §9{arena}§6.\n{prefix}§eApni §c/leave§e kore je kono muhurte leave korte parben.");
+        yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_MSG, "{prefix}§dApni akhon spectate korchen §9{arena}§d.\n{prefix}§dApni §c/leave§d kore je kono muhurte leave korte parben.");
         yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_DENIED_MSG, "&cEi arena ti te spectators allowed na!");
         yml.addDefault(Messages.COMMAND_TP_PLAYER_NOT_FOUND, "{prefix}&cPlayer paowa jai ni!");
         yml.addDefault(Messages.COMMAND_TP_NOT_IN_ARENA, "{prefix}&cEi player ti ekti bedwars arena te nei!");
         yml.addDefault(Messages.COMMAND_TP_NOT_STARTED, "{prefix}&cEi player er arena akhono start hoini!");
-        yml.addDefault(Messages.COMMAND_TP_USAGE, "{prefix}&cUsage: /bw tp <username>");
+        yml.addDefault(Messages.COMMAND_TP_USAGE, "{prefix}&cUsage: /blbw tp <username>");
         yml.addDefault(Messages.REJOIN_NO_ARENA, "{prefix}&cKono rejoin korar moto arena nei!");
         yml.addDefault(Messages.REJOIN_DENIED, "{prefix}&cApni ar arena ti rejoin korte parben na. Game shes othoba apnar Bichana bhenge giyeche.");
         yml.addDefault(Messages.REJOIN_ALLOWED, "{prefix}&eApni &a{arena} arena join korchen&e!");

@@ -52,7 +52,7 @@ public class DelArena extends SubCommand {
         setPriority(4);
         showInList(true);
         setPermission(Permissions.PERMISSION_DEL_ARENA);
-        setDisplayInfo(Misc.msgHoverClick("§6 ▪ §7/" + MainCommand.getInstance().getName() + " "+getSubCommandName()+" §6<worldName>", "§fDelete a map and its configuration.",
+        setDisplayInfo(Misc.msgHoverClick("§d ▪ §7/" + MainCommand.getInstance().getName() + " "+getSubCommandName()+" §d<worldName>", "§fDelete a map and its configuration.",
                 "/" + MainCommand.getInstance().getName() + " "+getSubCommandName(), ClickEvent.Action.SUGGEST_COMMAND));
     }
 
@@ -85,10 +85,10 @@ public class DelArena extends SubCommand {
                 p.sendMessage("§c▪ §7" + args[0] + " was deleted!");
                 return true;
             }
-            p.sendMessage("§6 ▪ §7Type again to confirm.");
+            p.sendMessage("§d ▪ §7Type again to confirm.");
             delArenaConfirm.replace(p, System.currentTimeMillis());
         } else {
-            p.sendMessage("§6 ▪ §7Type again to confirm.");
+            p.sendMessage("§d ▪ §7Type again to confirm.");
             delArenaConfirm.put(p, System.currentTimeMillis());
         }
         return true;

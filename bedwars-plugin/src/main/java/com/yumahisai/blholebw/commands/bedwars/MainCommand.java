@@ -127,12 +127,12 @@ public class MainCommand extends BukkitCommand implements ParentCommand {
                         Bukkit.dispatchCommand(s, getName() + " cmds");
                     } else {
                         s.sendMessage("");
-                        s.sendMessage("§8§l" + dot + " §6" + BedWars.plugin.getDescription().getName() + " v" + BedWars.plugin.getDescription().getVersion() + " §7- §c Admin Commands");
+                        s.sendMessage("§8§l" + dot + " §d" + BedWars.plugin.getDescription().getName() + " v" + BedWars.plugin.getDescription().getVersion() + " §7- §c Administrator Commands");
                         s.sendMessage("");
                         sendSubCommands((Player) s);
                     }
                 } else {
-                    s.sendMessage("§f   bw safemode §eenable/ disable");
+                    s.sendMessage("§f   blbw safemode §denable/ disable");
                 }
             } else {
                 if (s instanceof ConsoleCommandSender) {

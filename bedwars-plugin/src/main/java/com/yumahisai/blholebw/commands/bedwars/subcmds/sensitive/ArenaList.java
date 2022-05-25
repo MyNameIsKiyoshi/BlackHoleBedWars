@@ -53,7 +53,7 @@ public class ArenaList extends SubCommand {
         super(parent, name);
         setPriority(3);
         showInList(true);
-        setDisplayInfo(Misc.msgHoverClick("§6 ▪ §7/" + MainCommand.getInstance().getName() + " " + getSubCommandName() + ((getArenas().size() == 0) ? " §c(0 set)" : " §a(" + getArenas().size() + " set)"),
+        setDisplayInfo(Misc.msgHoverClick("§d ▪ §7/" + MainCommand.getInstance().getName() + " " + getSubCommandName() + ((getArenas().size() == 0) ? " §c(0 set)" : " §a(" + getArenas().size() + " set)"),
                 "§fShow available arenas", "/" + MainCommand.getInstance().getName() + " " + getSubCommandName(), ClickEvent.Action.RUN_COMMAND));
     }
 
@@ -92,11 +92,11 @@ public class ArenaList extends SubCommand {
         arenas.subList(start, limit).forEach(arena -> {
             String gameState = arena.getDisplayStatus(Language.getPlayerLanguage(p));
             String msg = color(
-                    "ID: &e" + arena.getWorldName() +
-                            " &fG: &e" + arena.getDisplayGroup(p) +
-                            " &fP: &e" + (arena.getPlayers().size() + arena.getSpectators().size()) +
+                    "ID: &d" + arena.getWorldName() +
+                            " &fG: &d" + arena.getDisplayGroup(p) +
+                            " &fP: &d" + (arena.getPlayers().size() + arena.getSpectators().size()) +
                             " &fS: " + gameState +
-                            " &fWl: &e" + (Bukkit.getWorld(arena.getWorldName()) != null)
+                            " &fWl: &d" + (Bukkit.getWorld(arena.getWorldName()) != null)
             );
 
 

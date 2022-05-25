@@ -48,7 +48,7 @@ public class CmdLeave extends SubCommand {
         super(parent, name);
         setPriority(20);
         showInList(false);
-        setDisplayInfo(MainCommand.createTC("§6 ▪ §7/"+ MainCommand.getInstance().getName()+" leave", "/"+getParent().getName()+" "+getSubCommandName(), "§fLeave an arena."));
+        setDisplayInfo(MainCommand.createTC("§d ▪ §7/"+ MainCommand.getInstance().getName()+" leave", "/"+getParent().getName()+" "+getSubCommandName(), "§fLeave an arena."));
     }
 
     @Override

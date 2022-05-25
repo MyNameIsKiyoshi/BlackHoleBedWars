@@ -68,12 +68,12 @@ public class Portuguese extends Language {
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_PARTY_TOO_BIG, "{prefix}&cA sua party é muito grande para poder entrar na arena. :(");
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_NOT_PARTY_LEADER, "{prefix}&cApenas o líder da party pode escolher a arena.");
         yml.addDefault(Messages.COMMAND_JOIN_PLAYER_JOIN_MSG, "{prefix}&7{player} &eentrou (&b{on}&e/&b{max}&e)!");
-        yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_MSG, "{prefix}§6Você agora está assistindo §9{arena}§6.\n{prefix}§eVocê pode sair da arena a qualquer momento com §c/leave§e.");
+        yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_MSG, "{prefix}§dVocê agora está assistindo §9{arena}§d.\n{prefix}§dVocê pode sair da arena a qualquer momento com §c/leave§d.");
         yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_DENIED_MSG, "&cEspectadores não são permitidos nesta arena!");
         yml.addDefault(Messages.COMMAND_TP_PLAYER_NOT_FOUND, "{prefix}&cJogador não encontrado!");
         yml.addDefault(Messages.COMMAND_TP_NOT_IN_ARENA, "{prefix}&cEste jogador não está em uma arena de bedwars!");
         yml.addDefault(Messages.COMMAND_TP_NOT_STARTED, "{prefix}&cA arena onde o jogador está ainda não começou!");
-        yml.addDefault(Messages.COMMAND_TP_USAGE, "{prefix}&cUse: /bw tp <player>");
+        yml.addDefault(Messages.COMMAND_TP_USAGE, "{prefix}&cUse: /blbw tp <player>");
         yml.addDefault(Messages.REJOIN_NO_ARENA, "{prefix}&cNão tem partidas para você se reconectar.");
         yml.addDefault(Messages.REJOIN_DENIED, "{prefix}&cVocê não pode mais se juntar à arena. Jogo terminou ou cama destruída.");
         yml.addDefault(Messages.REJOIN_ALLOWED, "{prefix}&eEntrando na arena &a{arena}&e!");

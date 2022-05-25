@@ -70,12 +70,12 @@ public class Persian extends Language {
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_PARTY_TOO_BIG, "{prefix}&cTedad afradi ke dar party shoma hastand monaseb in arena nist :(");
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_NOT_PARTY_LEADER, "{prefix}&cFaghat saheb party emkan entekhab arena dare.");
         yml.addDefault(Messages.COMMAND_JOIN_PLAYER_JOIN_MSG, "{prefix}&7{player} &evared shod (&b{on}&e/&b{max}&e)!");
-        yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_MSG, "{prefix}§6Shoma darhale spectate kardan §9{arena} §6hastid.\n{prefix}§eBaraye kharej shodan az arena az §c/leave §eestefade konid.");
+        yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_MSG, "{prefix}§dShoma darhale spectate kardan §9{arena} §dhastid.\n{prefix}§dBaraye kharej shodan az arena az §c/leave §destefade konid.");
         yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_DENIED_MSG, "&cEmkan vared shodan spectator be in arena vojood nadarad!");
         yml.addDefault(Messages.COMMAND_TP_PLAYER_NOT_FOUND, "{prefix}&cPlayer peida nashod!");
         yml.addDefault(Messages.COMMAND_TP_NOT_IN_ARENA, "{prefix}&cIn player dar yek arena bedwars nist!");
         yml.addDefault(Messages.COMMAND_TP_NOT_STARTED, "{prefix}&cArena i ke player dakhelesh hast hanooz start nashode!");
-        yml.addDefault(Messages.COMMAND_TP_USAGE, "{prefix}&cRavesh estefade: /bw tp <username>");
+        yml.addDefault(Messages.COMMAND_TP_USAGE, "{prefix}&cRavesh estefade: /blbw tp <username>");
         yml.addDefault(Messages.REJOIN_NO_ARENA, "{prefix}&cArena baraye mojadadan vared shodan mojood nist!");
         yml.addDefault(Messages.REJOIN_DENIED, "{prefix}&cShoma dige nemitoonid mojadadan vared arena beshid. Bazi tamoom ya hazf shode.");
         yml.addDefault(Messages.REJOIN_ALLOWED, "{prefix}&eDarhale vorood be arena &a{arena}&e!");

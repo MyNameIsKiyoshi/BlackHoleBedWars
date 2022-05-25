@@ -11,13 +11,13 @@
     </parent>
     
     <artifactId>versionsupport_1_10_R1</artifactId>
-    <version>${parent.version}</version>
+    <version>${project.parent.version}</version>
 
     <dependencies>
         <dependency>
             <groupId>com.yumahisai.blholebw</groupId>
             <artifactId>bedwars-api</artifactId>
-            <version>${project.version}</version>
+            <version>${project.parent.version}</version>
             <type>jar</type>
             <scope>provided</scope>
         </dependency>

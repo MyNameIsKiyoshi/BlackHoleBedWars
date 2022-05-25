@@ -62,7 +62,7 @@ public class SetMaxInTeam extends SubCommand {
                 return true;
             }
             ss.getConfig().set("maxInTeam", Integer.valueOf(args[0]));
-            p.sendMessage("§6 ▪ §7Max in team set!");
+            p.sendMessage("§d ▪ §7Max in team set!");
         }
         return true;
     }

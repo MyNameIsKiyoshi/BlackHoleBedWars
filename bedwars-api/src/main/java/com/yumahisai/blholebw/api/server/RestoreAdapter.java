@@ -60,7 +60,7 @@ public abstract class RestoreAdapter {
 
     /**
      * Unload the world.
-     * This is usually used for /bw unloadArena name
+     * This is usually used for /blbw unloadArena name
      */
     public abstract void onDisable(IArena a);
 

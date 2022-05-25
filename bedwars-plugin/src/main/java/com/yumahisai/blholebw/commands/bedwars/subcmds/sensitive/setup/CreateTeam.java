@@ -61,7 +61,7 @@ public class CreateTeam extends SubCommand {
                 colors.append(t.chat()).append(t.toString()).append(ChatColor.GRAY).append(", ");
             }
             colors = new StringBuilder(colors.toString().substring(0, colors.toString().length() - 2) + ChatColor.GRAY + ".");
-            p.sendMessage("§6 ▪ §7Available colors: " + colors);
+            p.sendMessage("§d ▪ §7Available colors: " + colors);
         } else {
             boolean y = true;
             for (TeamColor t : TeamColor.values()) {
@@ -76,14 +76,14 @@ public class CreateTeam extends SubCommand {
                     colors.append(t.chat()).append(t.toString()).append(ChatColor.GRAY).append(", ");
                 }
                 colors = new StringBuilder(colors.toString().substring(0, colors.toString().length() - 2) + ChatColor.GRAY + ".");
-                p.sendMessage("§6 ▪ §7Available colors: " + colors);
+                p.sendMessage("§d ▪ §7Available colors: " + colors);
             } else {
                 if (ss.getConfig().getYml().get("Team." + args[0] + ".Color") != null) {
                     p.sendMessage("§c▪ §7" + args[0] + " team already exists!");
                     return true;
                 }
                 ss.getConfig().set("Team." + args[0] + ".Color", args[1].toUpperCase());
-                p.sendMessage("§6 ▪ §7" + TeamColor.getChatColor(args[1]) + args[0] + " §7created!");
+                p.sendMessage("§d ▪ §7" + TeamColor.getChatColor(args[1]) + args[0] + " §7created!");
                 if (ss.getSetupType() == SetupType.ASSISTED) {
                     ss.getConfig().reload();
                     int teams = ss.getConfig().getYml().getConfigurationSection("Team").getKeys(false).size();

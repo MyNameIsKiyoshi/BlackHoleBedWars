@@ -48,7 +48,7 @@ public class Level extends SubCommand {
         setPermission(Permissions.PERMISSION_LEVEL);
         setPriority(10);
         showInList(true);
-        setDisplayInfo(Misc.msgHoverClick("§6 ▪ §7/" + getParent().getName() + " " + getSubCommandName() + " §8      - §eclick for details", "§fManage a player level.",
+        setDisplayInfo(Misc.msgHoverClick("§d ▪ §7/" + getParent().getName() + " " + getSubCommandName() + " §8      - §dclick for details", "§fManage a player level.",
                 "/" + getParent().getName() + " " + getSubCommandName(), ClickEvent.Action.RUN_COMMAND));
     }
 
@@ -60,7 +60,7 @@ public class Level extends SubCommand {
         }
         if (args[0].equalsIgnoreCase("setlevel")) {
             if (args.length != 3) {
-                s.sendMessage(ChatColor.DARK_PURPLE + " ▪ " + ChatColor.GRAY + "Usage: /bw level setLevel §o<player> <level>");
+                s.sendMessage(ChatColor.LIGHT_PURPLE + " ▪ " + ChatColor.GRAY + "Usage: /blbw level setLevel §o<player> <level>");
                 return true;
             }
             Player pl = Bukkit.getPlayer(args[1]);
@@ -89,12 +89,12 @@ public class Level extends SubCommand {
 
             BedWars.plugin.getServer().getScheduler().runTaskAsynchronously(BedWars.plugin, () -> {
                 BedWars.getRemoteDatabase().setLevelData(pl.getUniqueId(), level, 0, levelName, nextLevelCost);
-                s.sendMessage(ChatColor.DARK_PURPLE + " ▪ " + ChatColor.GRAY + pl.getName() + " level was set to: " + args[2]);
-                s.sendMessage(ChatColor.DARK_PURPLE + " ▪ " + ChatColor.GRAY + "The player may need to rejoin to see it updated.");
+                s.sendMessage(ChatColor.LIGHT_PURPLE + " ▪ " + ChatColor.GRAY + pl.getName() + " level was set to: " + args[2]);
+                s.sendMessage(ChatColor.LIGHT_PURPLE + " ▪ " + ChatColor.GRAY + "The player may need to rejoin to see it updated.");
             });
         } else if (args[0].equalsIgnoreCase("givexp")) {
             if (args.length != 3) {
-                s.sendMessage(ChatColor.DARK_PURPLE + " ▪ " + ChatColor.GRAY + "Usage: /bw level giveXp §o<player> <amount>");
+                s.sendMessage(ChatColor.LIGHT_PURPLE + " ▪ " + ChatColor.GRAY + "Usage: /blbw level giveXp §o<player> <amount>");
                 return true;
             }
             Player pl = Bukkit.getPlayer(args[1]);
@@ -117,8 +117,8 @@ public class Level extends SubCommand {
             BedWars.plugin.getServer().getScheduler().runTaskAsynchronously(BedWars.plugin, () -> {
                 Object[] data = BedWars.getRemoteDatabase().getLevelData(pl.getUniqueId());
                 BedWars.getRemoteDatabase().setLevelData(pl.getUniqueId(), (Integer) data[0], ((Integer)data[1]) + amount, (String) data[2], (Integer)data[3]);
-                s.sendMessage(ChatColor.DARK_PURPLE + " ▪ " + ChatColor.GRAY + args[2] + " xp was given to: " + pl.getName());
-                s.sendMessage(ChatColor.DARK_PURPLE + " ▪ " + ChatColor.GRAY + "The player may need to rejoin to see it updated.");
+                s.sendMessage(ChatColor.LIGHT_PURPLE + " ▪ " + ChatColor.GRAY + args[2] + " xp was given to: " + pl.getName());
+                s.sendMessage(ChatColor.LIGHT_PURPLE + " ▪ " + ChatColor.GRAY + "The player may need to rejoin to see it updated.");
             });
         } else {
             sendSubCommands(s, BedWars.getAPI());
@@ -129,15 +129,15 @@ public class Level extends SubCommand {
     private void sendSubCommands(CommandSender s, com.yumahisai.blholebw.api.BedWars api) {
         if (s instanceof Player) {
             Player p = (Player) s;
-            p.spigot().sendMessage(Misc.msgHoverClick("§6 ▪ §7/" + getParent().getName() + " " + getSubCommandName() + " setLevel §o<player> <level>",
+            p.spigot().sendMessage(Misc.msgHoverClick("§d ▪ §7/" + getParent().getName() + " " + getSubCommandName() + " setLevel §o<player> <level>",
                     "Set a player level.", "/" + getParent().getName() + " " + getSubCommandName() + " setLevel",
                     ClickEvent.Action.SUGGEST_COMMAND));
-            p.spigot().sendMessage(Misc.msgHoverClick("§6 ▪ §7/" + getParent().getName() + " " + getSubCommandName() + " giveXp §o<player> <amount>",
+            p.spigot().sendMessage(Misc.msgHoverClick("§d ▪ §7/" + getParent().getName() + " " + getSubCommandName() + " giveXp §o<player> <amount>",
                     "Give Xp to a player.", "/" + getParent().getName() + " " + getSubCommandName() + " giveXp",
                     ClickEvent.Action.SUGGEST_COMMAND));
         } else {
-            s.sendMessage(ChatColor.DARK_PURPLE + "bw level setLevel <player> <level>");
-            s.sendMessage(ChatColor.DARK_PURPLE + "bw level giveXp <player> <amount>");
+            s.sendMessage(ChatColor.LIGHT_PURPLE + "blbw level setLevel <player> <level>");
+            s.sendMessage(ChatColor.LIGHT_PURPLE + "blbw level giveXp <player> <amount>");
         }
     }
 

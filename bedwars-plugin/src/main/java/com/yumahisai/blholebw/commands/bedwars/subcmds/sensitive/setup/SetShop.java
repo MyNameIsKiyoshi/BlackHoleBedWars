@@ -67,8 +67,8 @@ public class SetShop extends SubCommand {
                 p.sendMessage("");
                 p.sendMessage(ss.getPrefix() + ChatColor.RED + "Could not find any nearby team.");
                 p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Make sure you set the team's spawn first!", ChatColor.LIGHT_PURPLE + "Set a team spawn.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
-                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Or if you set the spawn and it wasn't found automatically try using: /bw " + getSubCommandName() + " <team>", "Set a team shop.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
-                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Other use: /bw setShop <teamName>", "Set a team shop.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Or if you set the spawn and it wasn't found automatically try using: /blbw " + getSubCommandName() + " <team>", "Set a team shop.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Other use: /blbw setShop <teamName>", "Set a team shop.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
                 com.yumahisai.blholebw.BedWars.nms.sendTitle(p, " ", ChatColor.RED + "Could not find any nearby team.", 0, 60, 10);
                 Sounds.playSound(ConfigPath.SOUNDS_INSUFF_MONEY, p);
             } else {
@@ -88,7 +88,7 @@ public class SetShop extends SubCommand {
                 if (ss.getConfig().getYml().get("Team." + args[0] + ".Shop") != null) {
                     com.yumahisai.blholebw.commands.Misc.removeArmorStand("shop", ss.getConfig().getArenaLoc("Team." + args[0] + ".Shop"), ss.getConfig().getString("Team." + args[0] + ".Shop"));
                 }
-                com.yumahisai.blholebw.commands.Misc.createArmorStand(teamm + " " + ChatColor.DARK_PURPLE + "SHOP SET", p.getLocation(), ss.getConfig().stringLocationArenaFormat(p.getLocation()));
+                com.yumahisai.blholebw.commands.Misc.createArmorStand(teamm + " " + ChatColor.LIGHT_PURPLE + "SHOP SET", p.getLocation(), ss.getConfig().stringLocationArenaFormat(p.getLocation()));
                 ss.getConfig().saveArenaLoc("Team." + args[0] + ".Shop", p.getLocation());
                 p.sendMessage(ss.getPrefix() + "Shop set for: " + teamm);
                 if (ss.getSetupType() == SetupType.ASSISTED) {

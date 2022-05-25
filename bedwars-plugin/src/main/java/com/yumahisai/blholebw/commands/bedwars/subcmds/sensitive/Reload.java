@@ -46,7 +46,7 @@ public class Reload extends SubCommand {
         setPriority(11);
         showInList(true);
         setPermission(Permissions.PERMISSION_RELOAD);
-        setDisplayInfo(Misc.msgHoverClick("§6 ▪ §7/" + getParent().getName() + " "+getSubCommandName()+"       §8 - §ereload messages",
+        setDisplayInfo(Misc.msgHoverClick("§d ▪ §7/" + getParent().getName() + " "+getSubCommandName()+"       §8 - §dreload messages",
                 "§fRealod messages.\n§cNot recommended!", "/"+ getParent().getName() + " "+getSubCommandName(), ClickEvent.Action.RUN_COMMAND));
     }
 
@@ -57,7 +57,7 @@ public class Reload extends SubCommand {
         if (!MainCommand.isLobbySet(p)) return true;
         for (Language l : Language.getLanguages()){
             l.reload();
-            p.sendMessage("§6 ▪ §7"+l.getLangName()+" reloaded!");
+            p.sendMessage("§d ▪ §7"+l.getLangName()+" reloaded!");
         }
         return true;
     }

@@ -43,7 +43,7 @@ public class CmdTpStaff extends SubCommand {
 
     public CmdTpStaff(ParentCommand parent, String name) {
         super(parent, name);
-        setPermission("bw.tp");
+        setPermission("blbw.tp");
         showInList(false);
     }
 

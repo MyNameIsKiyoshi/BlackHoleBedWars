@@ -69,12 +69,12 @@ public class Indonesia extends Language {
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_PARTY_TOO_BIG, "{prefix}&cParty anda terlalu ramai untuk memasuki arena sebagai team :(");
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_NOT_PARTY_LEADER, "{prefix}&cHanya pemimpin yang dapat memilih arena.");
         yml.addDefault(Messages.COMMAND_JOIN_PLAYER_JOIN_MSG, "{prefix}&7{player} &etelah masuk (&b{on}&e/&b{max}&e)!");
-        yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_MSG, "{prefix}§6Kamu sekarang menonton §9{arena}§6.\n{prefix}§eKamu bisa keluar arena kapan pun dengan cara §c/leave§e.");
+        yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_MSG, "{prefix}§dKamu sekarang menonton §9{arena}§d.\n{prefix}§dKamu bisa keluar arena kapan pun dengan cara §c/leave§d.");
         yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_DENIED_MSG, "&cPenonton tidak diperbolehkan di arena tersebut!");
         yml.addDefault(Messages.COMMAND_TP_PLAYER_NOT_FOUND, "{prefix}&cPemain tidak ditemukan!");
         yml.addDefault(Messages.COMMAND_TP_NOT_IN_ARENA, "{prefix}&cPlayer tersebut tidak ada di arena!");
         yml.addDefault(Messages.COMMAND_TP_NOT_STARTED, "{prefix}&cArena dimana player tersebut berada belum dimulai!");
-        yml.addDefault(Messages.COMMAND_TP_USAGE, "{prefix}&cGunakan: /bw tp <nama pengguna>");
+        yml.addDefault(Messages.COMMAND_TP_USAGE, "{prefix}&cGunakan: /blbw tp <nama pengguna>");
         yml.addDefault(Messages.REJOIN_NO_ARENA, "{prefix}&cTidak ada arena untuk bergabung kembali!");
         yml.addDefault(Messages.REJOIN_DENIED, "{prefix}&cKamu tidak dapat bergabung ke arena kembali. Pertandingan selesai atau bed kamu telah dihancurkan.");
         yml.addDefault(Messages.REJOIN_ALLOWED, "{prefix}&eMemasuki arena &a{arena}&e!");

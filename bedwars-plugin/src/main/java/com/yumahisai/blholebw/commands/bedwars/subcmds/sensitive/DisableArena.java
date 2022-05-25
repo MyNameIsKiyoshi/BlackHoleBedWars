@@ -46,7 +46,7 @@ public class DisableArena extends SubCommand {
         super(parent, name);
         setPriority(6);
         showInList(true);
-        setDisplayInfo(Misc.msgHoverClick("§6 ▪ §7/" + getParent().getName() + " "+getSubCommandName()+" §6<worldName>", "§fDisable an arena.\nThis will remove the players \n§ffrom the arena before disabling.",
+        setDisplayInfo(Misc.msgHoverClick("§d ▪ §7/" + getParent().getName() + " "+getSubCommandName()+" §d<worldName>", "§fDisable an arena.\nThis will remove the players \n§ffrom the arena before disabling.",
                 "/" + getParent().getName() + " "+getSubCommandName()+" ", ClickEvent.Action.SUGGEST_COMMAND));
         setPermission(Permissions.PERMISSION_ARENA_DISABLE);
     }
@@ -69,7 +69,7 @@ public class DisableArena extends SubCommand {
             p.sendMessage("§c▪ §7This arena is disabled yet!");
             return true;
         }
-        p.sendMessage("§6 ▪ §7Disabling arena...");
+        p.sendMessage("§d ▪ §7Disabling arena...");
         a.disable();
         return true;
     }

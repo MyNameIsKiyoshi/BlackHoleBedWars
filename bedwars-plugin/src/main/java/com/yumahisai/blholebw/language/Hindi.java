@@ -69,12 +69,12 @@ public class Hindi extends Language {
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_PARTY_TOO_BIG, "{prefix}&cIs arena join karne liye apka party bohot bada hai. :(");
         yml.addDefault(Messages.COMMAND_JOIN_DENIED_NOT_PARTY_LEADER, "{prefix}&cKeeval Leader arena select kar sakte hai.");
         yml.addDefault(Messages.COMMAND_JOIN_PLAYER_JOIN_MSG, "{prefix}&7{player} &ejoin kiye (&b{on}&e/&b{max}&e)!");
-        yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_MSG, "{prefix}§6Ap abhi §9{arena} §6spectate kar rahe hai.\n{prefix}§§eAp kabhi bhi §c/leave §euse karke leave kar sakte hai.");
+        yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_MSG, "{prefix}§dAp abhi §9{arena} §dspectate kar rahe hai.\n{prefix}§§dAp kabhi bhi §c/leave §duse karke leave kar sakte hai.");
         yml.addDefault(Messages.COMMAND_JOIN_SPECTATOR_DENIED_MSG, "&cIs arena me spectators allowed nahi hain!");
         yml.addDefault(Messages.COMMAND_TP_PLAYER_NOT_FOUND, "{prefix}&cPlayer nahi miley!");
         yml.addDefault(Messages.COMMAND_TP_NOT_IN_ARENA, "{prefix}&cYe player ek arena me nahi hein!");
         yml.addDefault(Messages.COMMAND_TP_NOT_STARTED, "{prefix}&cYe player jis arena me hai wo arena abhi bhi start nahi hua!");
-        yml.addDefault(Messages.COMMAND_TP_USAGE, "{prefix}&cUsage: /bw tp <username>");
+        yml.addDefault(Messages.COMMAND_TP_USAGE, "{prefix}&cUsage: /blbw tp <username>");
         yml.addDefault(Messages.REJOIN_NO_ARENA, "{prefix}&cRejoin karne ke liye koi arena nahi hai!");
         yml.addDefault(Messages.REJOIN_DENIED, "{prefix}&cAp is arena ko aur rejoin nahi kar sakte. Game khatam ho gaya ya apka Bistar destroy ho gaya.");
         yml.addDefault(Messages.REJOIN_ALLOWED, "{prefix}&eAp &a{arena} &earena join kar rahe hai!");

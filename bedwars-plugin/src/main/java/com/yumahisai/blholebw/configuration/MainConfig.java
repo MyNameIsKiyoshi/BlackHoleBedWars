@@ -129,17 +129,17 @@ public class MainConfig extends ConfigManager {
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_DISABLE_ANVIL, true);
 
         /* Multi-Arena Lobby Command Items */
-        saveLobbyCommandItem("stats", "bw stats", false, BedWars.getForCurrentVersion("SKULL_ITEM", "SKULL_ITEM", "PLAYER_HEAD"), 3, 0);
-        saveLobbyCommandItem("arena-selector", "bw gui", true, "CHEST", 5, 4);
-        saveLobbyCommandItem("leave", "bw leave", false, BedWars.getForCurrentVersion("BED", "BED", "RED_BED"), 0, 8);
+        saveLobbyCommandItem("stats", "blbw stats", false, BedWars.getForCurrentVersion("SKULL_ITEM", "SKULL_ITEM", "PLAYER_HEAD"), 3, 0);
+        saveLobbyCommandItem("arena-selector", "blbw gui", true, "CHEST", 5, 4);
+        saveLobbyCommandItem("leave", "blbw leave", false, BedWars.getForCurrentVersion("BED", "BED", "RED_BED"), 0, 8);
 
         /* Pre Game Command Items */
-        savePreGameCommandItem("stats", "bw stats", false, BedWars.getForCurrentVersion("SKULL_ITEM", "SKULL_ITEM", "PLAYER_HEAD"), 3, 0);
-        savePreGameCommandItem("leave", "bw leave", false, BedWars.getForCurrentVersion("BED", "BED", "RED_BED"), 0, 8);
+        savePreGameCommandItem("stats", "blbw stats", false, BedWars.getForCurrentVersion("SKULL_ITEM", "SKULL_ITEM", "PLAYER_HEAD"), 3, 0);
+        savePreGameCommandItem("leave", "blbw leave", false, BedWars.getForCurrentVersion("BED", "BED", "RED_BED"), 0, 8);
 
         /* Spectator Command Items */
-        saveSpectatorCommandItem("teleporter", "bw teleporter", false, BedWars.getForCurrentVersion("SKULL_ITEM", "SKULL_ITEM", "PLAYER_HEAD"), 3, 0);
-        saveSpectatorCommandItem("leave", "bw leave", false, BedWars.getForCurrentVersion("BED", "BED", "RED_BED"), 0, 8);
+        saveSpectatorCommandItem("teleporter", "blbw teleporter", false, BedWars.getForCurrentVersion("SKULL_ITEM", "SKULL_ITEM", "PLAYER_HEAD"), 3, 0);
+        saveSpectatorCommandItem("leave", "blbw leave", false, BedWars.getForCurrentVersion("BED", "BED", "RED_BED"), 0, 8);
 
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_ARENA_SELECTOR_SETTINGS_SIZE, 27);
         yml.addDefault(ConfigPath.GENERAL_CONFIGURATION_ARENA_SELECTOR_SETTINGS_SHOW_PLAYING, true);

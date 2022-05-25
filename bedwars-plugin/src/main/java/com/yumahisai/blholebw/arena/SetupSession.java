@@ -123,7 +123,7 @@ public class SetupSession implements ISetupSession {
      * @return return is broken. do not use it.
      */
     public boolean startSetup() {
-        getPlayer().sendMessage("§6 ▪ §7Loading " + getWorldName());
+        getPlayer().sendMessage("§d ▪ §7Loading " + getWorldName());
         cm = new ArenaConfig(BedWars.plugin, getWorldName(), BedWars.plugin.getDataFolder().getPath() + "/Arenas");
         BedWars.getAPI().getRestoreAdapter().onSetupSessionStart(this);
         return true;
@@ -133,7 +133,7 @@ public class SetupSession implements ISetupSession {
         Inventory inv = Bukkit.createInventory(null, 9, getInvName());
         ItemStack assisted = new ItemStack(Material.GLOWSTONE_DUST);
         ItemMeta am = assisted.getItemMeta();
-        am.setDisplayName("§e§lASSISTED SETUP");
+        am.setDisplayName("§d§lASSISTED SETUP");
         am.setLore(Arrays.asList("", "§aEasy and quick setup!", "§7For beginners and lazy staff :D", "", "§3Reduced options."));
         assisted.setItemMeta(am);
         inv.setItem(getAssistedSlot(), assisted);
@@ -154,7 +154,7 @@ public class SetupSession implements ISetupSession {
     public void cancel() {
         getSetupSessions().remove(this);
         if (isStarted()) {
-            player.sendMessage("§6 ▪ §7" + getWorldName() + " setup cancelled!");
+            player.sendMessage("§d ▪ §7" + getWorldName() + " setup cancelled!");
             done();
         }
     }

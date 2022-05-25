@@ -82,7 +82,7 @@ public class SetType extends SubCommand {
                 ss.getConfig().set("maxInTeam", 4);
             }
             ss.getConfig().set("group", input);
-            p.sendMessage("§6 ▪ §7Arena group changed to: §d" + input);
+            p.sendMessage("§d ▪ §7Arena group changed to: §d" + input);
             if (ss.getSetupType() == SetupType.ASSISTED) {
                 Bukkit.dispatchCommand(p, getParent().getName());
             }
@@ -102,10 +102,10 @@ public class SetType extends SubCommand {
     }
 
     private void sendUsage(Player p) {
-        p.sendMessage("§9 ▪ §7Usage: " + getParent().getName() + " " + getSubCommandName() + " <type>");
-        p.sendMessage("§9Available types: ");
+        p.sendMessage("§d ▪ §7Usage: " + getParent().getName() + " " + getSubCommandName() + " <type>");
+        p.sendMessage("§dAvailable types: ");
         for (String st : available) {
-            p.spigot().sendMessage(Misc.msgHoverClick("§1 ▪ §e" + st + " §7(click to set)", "§dClick to make the arena " + st, "/" + getParent().getName() + " " + getSubCommandName() + " " + st, ClickEvent.Action.RUN_COMMAND));
+            p.spigot().sendMessage(Misc.msgHoverClick("§1 ▪ §d" + st + " §7(click to set)", "§dClick to make the arena " + st, "/" + getParent().getName() + " " + getSubCommandName() + " " + st, ClickEvent.Action.RUN_COMMAND));
         }
     }
 

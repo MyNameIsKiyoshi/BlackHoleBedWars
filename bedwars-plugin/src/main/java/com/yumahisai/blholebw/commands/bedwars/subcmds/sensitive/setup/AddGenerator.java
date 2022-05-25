@@ -79,8 +79,8 @@ public class AddGenerator extends SubCommand {
                 // else send usage message
                 p.sendMessage(ss.getPrefix() + ChatColor.RED + "Could not find any nearby team.");
                 p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Make sure you set the team's spawn first!", ChatColor.LIGHT_PURPLE + "Set a team spawn.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
-                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Or if you set the spawn and it wasn't found automatically try using: /bw addGenerator <team>", "Add a team generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
-                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Other use: /bw addGenerator <emerald/ diamond>", "Add an emerald/ diamond generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Or if you set the spawn and it wasn't found automatically try using: /blbw addGenerator <team>", "Add a team generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Other use: /blbw addGenerator <emerald/ diamond>", "Add an emerald/ diamond generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
                 com.yumahisai.blholebw.BedWars.nms.sendTitle(p, " ", ChatColor.RED + "Could not find any nearby team.", 5, 60, 5);
                 Sounds.playSound(ConfigPath.SOUNDS_INSUFF_MONEY, p);
                 return true;
@@ -136,7 +136,7 @@ public class AddGenerator extends SubCommand {
                 team = args[1];
                 if (ss.getConfig().getYml().get("Team." + team + ".Color") == null) {
                     p.sendMessage(ss.getPrefix() + ChatColor.RED + "Could not find team: " + team);
-                    p.sendMessage(ss.getPrefix() + "Use: /bw createTeam if you want to create one.");
+                    p.sendMessage(ss.getPrefix() + "Use: /blbw createTeam if you want to create one.");
                     ss.displayAvailableTeams();
                     com.yumahisai.blholebw.BedWars.nms.sendTitle(p, " ", ChatColor.RED + "Could not find any nearby team.", 5, 60, 5);
                     Sounds.playSound(ConfigPath.SOUNDS_INSUFF_MONEY, p);
@@ -146,7 +146,7 @@ public class AddGenerator extends SubCommand {
             // find nearest team to set the generator else send usage msg
             if (team.isEmpty()) {
                 p.sendMessage(ss.getPrefix() + ChatColor.RED + "Could not find any nearby team.");
-                p.sendMessage(ss.getPrefix() + "Try using: /bw addGenerator <iron/ gold/ upgrade> <team>");
+                p.sendMessage(ss.getPrefix() + "Try using: /blbw addGenerator <iron/ gold/ upgrade> <team>");
                 return true;
             }
 
@@ -165,7 +165,7 @@ public class AddGenerator extends SubCommand {
             String team = args[0];
             if (ss.getConfig().getYml().get("Team." + team + ".Color") == null) {
                 p.sendMessage(ss.getPrefix() + "Could not find team: " + ChatColor.RED + team);
-                p.sendMessage(ss.getPrefix() + "Use: /bw createTeam if you want to create one.");
+                p.sendMessage(ss.getPrefix() + "Use: /blbw createTeam if you want to create one.");
                 ss.displayAvailableTeams();
                 com.yumahisai.blholebw.BedWars.nms.sendTitle(p, " ", "Could not find team: " + ChatColor.RED + team, 5, 40, 5);
                 Sounds.playSound(ConfigPath.SOUNDS_INSUFF_MONEY, p);
@@ -184,16 +184,16 @@ public class AddGenerator extends SubCommand {
             return true;
         }
         if (ss.getSetupType() == SetupType.ASSISTED) {
-            p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "/bw addGenerator (detect team automatically)", "Add a team generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
-            p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "/bw addGenerator <team>", "Add a team generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+            p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "/blbw addGenerator (detect team automatically)", "Add a team generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+            p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "/blbw addGenerator <team>", "Add a team generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
 
         }
         if (ss.getSetupType() == SetupType.ADVANCED) {
-            p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "/bw addGenerator <iron/ gold/ upgrade>", "Add a team generator.\nThe team will be detected automatically.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+            p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "/blbw addGenerator <iron/ gold/ upgrade>", "Add a team generator.\nThe team will be detected automatically.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
 
-            p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "/bw addGenerator <iron/ gold/ upgrade> <team>", "Add a team generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+            p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "/blbw addGenerator <iron/ gold/ upgrade> <team>", "Add a team generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
         }
-        p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "/bw addGenerator <emerald/ diamond>", "Add an emerald/ diamond generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+        p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "/blbw addGenerator <emerald/ diamond>", "Add an emerald/ diamond generator.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
         return true;
     }
 

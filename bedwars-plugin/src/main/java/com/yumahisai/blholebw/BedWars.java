@@ -416,7 +416,7 @@ public class BedWars extends JavaPlugin {
         Bukkit.getScheduler().runTaskLater(plugin, () -> {
             if (this.getServer().getPluginManager().getPlugin("Citizens") != null) {
                 JoinNPC.setCitizensSupport(true);
-                getLogger().info("Hook into Citizens support. /bw npc");
+                getLogger().info("Hook into Citizens support. /blbw npc");
                 registerEvents(new CitizensListener());
             }
 

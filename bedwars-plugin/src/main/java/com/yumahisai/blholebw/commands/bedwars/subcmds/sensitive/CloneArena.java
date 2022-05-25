@@ -50,7 +50,7 @@ public class CloneArena extends SubCommand {
         setPriority(7);
         showInList(true);
         setPermission(Permissions.PERMISSION_CLONE);
-        setDisplayInfo(Misc.msgHoverClick("§6 ▪ §7/" + getParent().getName() + " " + getSubCommandName() + " §6<worldName> <newName>", "§fClone an existing arena.",
+        setDisplayInfo(Misc.msgHoverClick("§d ▪ §7/" + getParent().getName() + " " + getSubCommandName() + " §d<worldName> <newName>", "§fClone an existing arena.",
                 "/" + getParent().getName() + " " + getSubCommandName(), ClickEvent.Action.SUGGEST_COMMAND));
     }
 
@@ -93,7 +93,7 @@ public class CloneArena extends SubCommand {
                 p.sendMessage("§c▪ §7An error occurred while copying the map's config. Check the console.");
             }
         }
-        p.sendMessage("§6 ▪ §7Done :D.");
+        p.sendMessage("§d ▪ §7Arena Cloned..");
         return true;
     }
 

@@ -59,7 +59,7 @@ public class WaitingPos extends SubCommand {
             p.sendMessage("§c▪ §7Usage: /" + BedWars.mainCmd + " "+getSubCommandName()+" 1 or 2");
         } else {
             if (args[0].equalsIgnoreCase("1") || args[0].equalsIgnoreCase("2")) {
-                p.sendMessage("§6 ▪ §7Pos " + args[0] + " set!");
+                p.sendMessage("§d ▪ §7Pos " + args[0] + " set!");
                 ss.getConfig().saveArenaLoc("waiting.Pos" + args[0], p.getLocation());
                 ss.getConfig().reload();
                 if (ss.getConfig().getYml().get("waiting.Pos1") == null){
@@ -75,7 +75,7 @@ public class WaitingPos extends SubCommand {
         }
         if (!((ss.getConfig().getYml().get("waiting.Pos1") == null || ss.getConfig().getYml().get("waiting.Pos2") == null))){
             Bukkit.dispatchCommand(p, BedWars.mainCmd+" cmds");
-            s.sendMessage("§6 ▪ §7Set teams spawn if you didn't!");
+            s.sendMessage("§d ▪ §7Set teams spawn if you didn't!");
         }
         return true;
     }

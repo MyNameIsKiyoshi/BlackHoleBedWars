@@ -78,7 +78,7 @@ public class SetBuildHeight extends SubCommand {
                 return true;
             }
             ss.getConfig().set("max-build-y", Integer.valueOf(args[0]));
-            p.sendMessage("§6 ▪ §7Max build height Y set to §e" + args[0] + "§7!");
+            p.sendMessage("§d ▪ §7Max build height Y set to §d" + args[0] + "§7!");
         }
         return true;
     }

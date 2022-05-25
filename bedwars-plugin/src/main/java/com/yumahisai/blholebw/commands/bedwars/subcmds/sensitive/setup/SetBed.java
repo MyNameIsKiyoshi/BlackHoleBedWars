@@ -66,7 +66,7 @@ public class SetBed extends SubCommand {
                 p.sendMessage("");
                 p.sendMessage(ss.getPrefix() + ChatColor.RED + "Could not find any nearby team.");
                 p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Make sure you set the team's spawn first!", ChatColor.LIGHT_PURPLE + "Set a team bed.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
-                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Or if you set the spawn and it wasn't found automatically try using: /bw " + getSubCommandName() + " <team>", "Add a team bed.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
+                p.spigot().sendMessage(Misc.msgHoverClick(ss.getPrefix() + "Or if you set the spawn and it wasn't found automatically try using: /blbw " + getSubCommandName() + " <team>", "Add a team bed.", "/" + getParent().getName() + " " + getSubCommandName() + " ", ClickEvent.Action.SUGGEST_COMMAND));
                 BedWars.nms.sendTitle(p, " ", ChatColor.RED + "Could not find any nearby team.", 5, 60, 5);
                 Sounds.playSound(ConfigPath.SOUNDS_INSUFF_MONEY, p);
                 ss.displayAvailableTeams();
@@ -87,7 +87,7 @@ public class SetBed extends SubCommand {
                 if (ss.getConfig().getYml().get("Team") != null) {
                     p.sendMessage(ss.getPrefix() + "Available teams: ");
                     for (String team : Objects.requireNonNull(ss.getConfig().getYml().getConfigurationSection("Team")).getKeys(false)) {
-                        p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.DARK_PURPLE + " " + '▪' + " " + ss.getTeamColor(team) + team, ChatColor.LIGHT_PURPLE + "Set bed for " + ss.getTeamColor(team) + team, "/" + BedWars.mainCmd + " setBed " + team, ClickEvent.Action.RUN_COMMAND));
+                        p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.LIGHT_PURPLE + " " + '▪' + " " + ss.getTeamColor(team) + team, ChatColor.LIGHT_PURPLE + "Set bed for " + ss.getTeamColor(team) + team, "/" + BedWars.mainCmd + " setBed " + team, ClickEvent.Action.RUN_COMMAND));
                     }
                 }
             } else {
@@ -95,7 +95,7 @@ public class SetBed extends SubCommand {
                 if (ss.getConfig().getYml().get("Team." + args[0] + ".Bed") != null) {
                     com.yumahisai.blholebw.commands.Misc.removeArmorStand("bed", ss.getConfig().getArenaLoc("Team." + args[0] + ".Bed"), null);
                 }
-                com.yumahisai.blholebw.commands.Misc.createArmorStand(team + " " + ChatColor.DARK_PURPLE + "BED SET", p.getLocation().add(0.5, 0, 0.5), null);
+                com.yumahisai.blholebw.commands.Misc.createArmorStand(team + " " + ChatColor.LIGHT_PURPLE + "BED SET", p.getLocation().add(0.5, 0, 0.5), null);
                 ss.getConfig().saveArenaLoc("Team." + args[0] + ".Bed", p.getLocation());
                 p.sendMessage(ss.getPrefix() + "Bed set for: " + team);
 
