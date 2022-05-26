@@ -21,37 +21,13 @@
  *
  */
 
-package com.yumahisai.blholebw.support.vipfeatures;
+package com.yumahisai.blholebw.api.vipfeatures;
 
-import com.yumahisai.blholebw.api.arena.GameState;
-import com.yumahisai.blholebw.api.arena.IArena;
-import com.yumahisai.blholebw.api.vipfeatures.MiniGame;
-import com.yumahisai.blholebw.arena.Arena;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-public class VipFeatures extends MiniGame {
+public class MiniGameAlreadyRegistered extends Throwable {
 
-    public VipFeatures(Plugin plugin) {
-        super(plugin);
-    }
-
-    @Override
-    public boolean isPlaying(Player p) {
-        IArena a = Arena.getArenaByPlayer(p);
-        if (a != null) {
-            return !(a.getStatus() == GameState.waiting || a.getStatus() == GameState.starting);
-        }
-        return false;
-    }
-
-    @Override
-    public boolean hasBoosters() {
-        return false;
-    }
-
-    @Override
-    public String getDisplayName() {
-        return "BlackHoleBedWars";
+    public MiniGameAlreadyRegistered(Plugin plugin) {
+        super("Cannot register mini-game integration for: " + plugin.getName() + ". Mini-game already registered.");
     }
 }

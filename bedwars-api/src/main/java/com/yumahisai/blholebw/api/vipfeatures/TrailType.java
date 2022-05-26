@@ -21,37 +21,28 @@
  *
  */
 
-package com.yumahisai.blholebw.support.vipfeatures;
+package com.yumahisai.blholebw.api.vipfeatures;
 
-import com.yumahisai.blholebw.api.arena.GameState;
-import com.yumahisai.blholebw.api.arena.IArena;
-import com.yumahisai.blholebw.api.vipfeatures.MiniGame;
-import com.yumahisai.blholebw.arena.Arena;
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
+public enum TrailType {
+    NONE(null, ""), FIRE("FLAME", "vipfeatures.tails.fire"),
+    SLIME("SLIME", "vipfeatures.trails.slime"),
+    WATER("WATER_SPLASH", "vipfeatures.trails.water"),
+    NOTES("NOTE", "vipfeatures.trails.notes"),
+    CRYSTAL("CRIT_MAGIC", "vipfeatures.trails.crystal");
 
-public class VipFeatures extends MiniGame {
+    private final String particle, permission;
 
-    public VipFeatures(Plugin plugin) {
-        super(plugin);
+    TrailType(String particle, String permission) {
+        this.particle = particle;
+        this.permission = permission;
+
     }
 
-    @Override
-    public boolean isPlaying(Player p) {
-        IArena a = Arena.getArenaByPlayer(p);
-        if (a != null) {
-            return !(a.getStatus() == GameState.waiting || a.getStatus() == GameState.starting);
-        }
-        return false;
+    public String getPermission() {
+        return permission;
     }
 
-    @Override
-    public boolean hasBoosters() {
-        return false;
-    }
-
-    @Override
-    public String getDisplayName() {
-        return "BlackHoleBedWars";
+    public String getParticle() {
+        return particle;
     }
 }

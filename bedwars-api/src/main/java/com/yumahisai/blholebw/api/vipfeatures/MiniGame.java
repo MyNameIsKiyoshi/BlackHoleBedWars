@@ -21,37 +21,41 @@
  *
  */
 
-package com.yumahisai.blholebw.support.vipfeatures;
+package com.yumahisai.blholebw.api.vipfeatures;
 
-import com.yumahisai.blholebw.api.arena.GameState;
-import com.yumahisai.blholebw.api.arena.IArena;
-import com.yumahisai.blholebw.api.vipfeatures.MiniGame;
-import com.yumahisai.blholebw.arena.Arena;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-public class VipFeatures extends MiniGame {
+public abstract class MiniGame {
 
-    public VipFeatures(Plugin plugin) {
-        super(plugin);
+    private final Plugin owner;
+
+    /**
+     * Create a mini game integration.
+     *
+     * @param plugin your mini game instance.
+     */
+    public MiniGame(Plugin plugin) {
+        this.owner = plugin;
     }
 
-    @Override
-    public boolean isPlaying(Player p) {
-        IArena a = Arena.getArenaByPlayer(p);
-        if (a != null) {
-            return !(a.getStatus() == GameState.waiting || a.getStatus() == GameState.starting);
-        }
-        return false;
-    }
+    /**
+     * Check if a player is playing.
+     * He won't be able to interact with perks of is playing
+     */
+    public abstract boolean isPlaying(Player p);
 
-    @Override
-    public boolean hasBoosters() {
-        return false;
-    }
+    /**
+     * Check if a mini-game has boosters support
+     */
+    public abstract boolean hasBoosters();
 
-    @Override
-    public String getDisplayName() {
-        return "BlackHoleBedWars";
+    /**
+     * Get mini-game display name
+     */
+    public abstract String getDisplayName();
+
+    public Plugin getOwner() {
+        return owner;
     }
 }

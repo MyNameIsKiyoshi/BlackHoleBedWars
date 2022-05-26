@@ -21,37 +21,27 @@
  *
  */
 
-package com.yumahisai.blholebw.support.vipfeatures;
+package com.yumahisai.blholebw.api.vipfeatures;
 
-import com.yumahisai.blholebw.api.arena.GameState;
-import com.yumahisai.blholebw.api.arena.IArena;
-import com.yumahisai.blholebw.api.vipfeatures.MiniGame;
-import com.yumahisai.blholebw.arena.Arena;
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
+public enum BoosterType {
 
-public class VipFeatures extends MiniGame {
+    NONE(1, ""),
+    BOOSTER_X_2(2, "vipfeatures.boosters.x2"),
+    BOOSTER_X_3(3, "vipfeatures.boosters.x3");
 
-    public VipFeatures(Plugin plugin) {
-        super(plugin);
+    int multiplier;
+    String permission;
+
+    BoosterType(int multiplier, String permission) {
+        this.multiplier = multiplier;
+        this.permission = permission;
     }
 
-    @Override
-    public boolean isPlaying(Player p) {
-        IArena a = Arena.getArenaByPlayer(p);
-        if (a != null) {
-            return !(a.getStatus() == GameState.waiting || a.getStatus() == GameState.starting);
-        }
-        return false;
+    public String getPermission() {
+        return permission;
     }
 
-    @Override
-    public boolean hasBoosters() {
-        return false;
-    }
-
-    @Override
-    public String getDisplayName() {
-        return "BlackHoleBedWars";
+    public int getMultiplier() {
+        return multiplier;
     }
 }
